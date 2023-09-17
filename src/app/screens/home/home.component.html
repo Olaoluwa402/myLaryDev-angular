@@ -1,0 +1,231 @@
+<div class="container">
+  <!-- alert box component -->
+  <app-alert
+    [show]="showAlert"
+    [message]="alertMessage"
+    [success]="isSuccess"
+    [danger]="isError"
+  ></app-alert>
+  <!-- alert box end -->
+
+  <section class="d-flex flex-row align-items-center flex-gap-2 py-3">
+    <!-- section title and sub title -->
+    <h2>Talent Management</h2>
+    <div class="divider mx-3"></div>
+    <h4>Succession planning</h4>
+  </section>
+
+  <!-- create cricalrole modal form -->
+  <app-create-critical-role
+    (onSubmitCriticalRole)="createCriticalRoleHandler($event)"
+  ></app-create-critical-role>
+  <!-- end of critical role form -->
+
+  <!-- analytic section -->
+  <section class="container">
+    <div class="row">
+      <div class="row">
+        <!-- create critical role  -->
+        <div class="d-flex flex-row justify-content-end">
+          <app-button
+            text="create critical roles"
+            color="#fff"
+            bgColor="purple"
+          ></app-button>
+        </div>
+
+        <!-- analytics starts-->
+        <div class="row shadow rounded">
+          <div class="d-flex flex-row align-items-center p-3">
+            <!-- analytic intro -->
+            <div class="col-8"><h5 class="text-capitalize">analytics</h5></div>
+            <div class="col-4">
+              <div
+                class="d-flex flex-row justify-content-end align-items-center gap-3"
+              >
+                <select class="p-1 w-100 border-2 rounded">
+                  <option>Department</option>
+                  <option>Department</option>
+                  <option>Department</option>
+                  <option>Department</option>
+                  <option>Department</option>
+                </select>
+
+                <select class="p-1 w-100 border-2 rounded">
+                  <option>Month</option>
+                  <option>Month</option>
+                  <option>Month</option>
+                  <option>Month</option>
+                  <option>Month</option>
+                </select>
+
+                <select class="p-1 w-100 border-2 rounded">
+                  <option>Year</option>
+                  <option>Year</option>
+                  <option>Year</option>
+                  <option>Year</option>
+                  <option>Year</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- End of analytic intro -->
+
+          <!-- horizontal line -->
+          <div class="container">
+            <hr class="" />
+          </div>
+          <!-- End of horizontal line -->
+
+          <div class="container">
+            <div class="row">
+              <div
+                class="d-flex flex-row align-items-center justify-content-between"
+              >
+                <!-- critical count -->
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center gap-2 py-1"
+                  *ngIf="analytics && analytics.totalCriticalRole"
+                >
+                  <div
+                    class="analytic-icon d-flex justify-content-center align-items-center"
+                  >
+                    <fa-icon [icon]="faGift"></fa-icon>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="font-weight-bold">
+                      {{ analytics.totalCriticalRole }}
+                    </h6>
+                    <span class="font-weight-bold">Total Critical Roles</span>
+                  </div>
+                </div>
+
+                <!-- total talent -->
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center gap-2 py-1"
+                  *ngIf="analytics && analytics.totalTalents"
+                >
+                  <div
+                    class="analytic-icon d-flex justify-content-center align-items-center"
+                  >
+                    <fa-icon [icon]="faUserAlt"></fa-icon>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="font-weight-bold">
+                      {{ analytics.totalTalents }}
+                    </h6>
+                    <span class="font-weight-bold">Total talents</span>
+                  </div>
+                </div>
+                <!-- vacant roles -->
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center gap-2 py-1"
+                  *ngIf="analytics && analytics.vacantRoles"
+                >
+                  <div
+                    class="analytic-icon d-flex justify-content-center align-items-center"
+                  >
+                    <fa-icon [icon]="faUserAlt"></fa-icon>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="font-weight-bold">
+                      {{ analytics.vacantRoles }}
+                    </h6>
+                    <span class="font-weight-bold">Vacant Roles</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- analytics ends-->
+
+        <!-- Available critical roles section starts -->
+        <section class="row my-5">
+          <div class="row mb-3">
+            <h4>Available critical Roles</h4>
+          </div>
+
+          <!-- filter tab -->
+          <div class="row">
+            <div class="d-flex flex-row align-items-center gap-3">
+              <select class="p-1 border-2 rounded">
+                <option>20</option>
+                <option>20</option>
+                <option>20</option>
+                <option>20</option>
+                <option>20</option>
+              </select>
+
+              <select class="p-1 border-2 rounded">
+                <option>recent</option>
+                <option>recent</option>
+                <option>recent</option>
+                <option>recent</option>
+                <option>recent</option>
+              </select>
+
+              <div
+                class="filter-search w-100 d-flex flex-row align-items-center rounded p-1"
+              >
+                <fa-icon [icon]="faSearch"></fa-icon>
+                <input
+                  type="text"
+                  class="w-100 border-0 px-1"
+                  placeholder="Search"
+                />
+              </div>
+
+              <select class="p-1 border-2 rounded">
+                <option>By Roles</option>
+                <option>By Roles</option>
+                <option>By Roles</option>
+                <option>By Roles</option>
+                <option>By Roles</option>
+              </select>
+
+              <button class="btn btn-filter">filter</button>
+            </div>
+          </div>
+          <!-- End of filter tab -->
+
+          <!-- critical role table -->
+          <table class="table table-bordered my-4">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Number of Talent Required</th>
+                <th scope="col">Number of Talent Added</th>
+                <th scope="col">Date Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let item of availablecriticalRoles; let index = index"
+              >
+                <th scope="row">{{ index + 1 }}</th>
+                <td>{{ item.jobRole }}</td>
+                <td>{{ item.numOfAvailableRoles }}</td>
+                <td>{{ item.numOfRoleFilled }}</td>
+                <td>
+                  <div class="d-flex align-items-center gap-5">
+                    <span>{{ item.createdAt | date : "dd/MM/yyyy" }}</span>
+                    <fa-icon
+                      style="cursor: pointer"
+                      [icon]="faChevronRight"
+                    ></fa-icon>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- End of table -->
+        </section>
+        <!-- End of Available critical roles section  -->
+      </div>
+    </div>
+  </section>
+</div>

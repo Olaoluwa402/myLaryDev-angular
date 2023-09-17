@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+$dark80: #333;
+$white100: #ffffff;
+
+body {
+  background-color: $white100 !important;
+  color: $dark80 !important;
+}
+
+img{
+  witdh:100%;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+

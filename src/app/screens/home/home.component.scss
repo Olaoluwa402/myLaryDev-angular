@@ -1,0 +1,38 @@
+$dark80: #333;
+$light100: #fff;
+$purple50: rgba(128, 0, 128, 0.5);
+
+.container {
+  & .divider {
+    width: 1px;
+    height: 20px;
+    background-color: $dark80;
+  }
+
+  & hr {
+    border: 1px solid $dark80;
+  }
+
+  & .analytic-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: $purple50;
+  }
+
+  & .btn-filter {
+    background-color: $purple50 !important;
+    color: $light100;
+  }
+
+  & .filter-search {
+    border: 2px solid $dark80;
+
+    & input:focus,
+    input:hover {
+      box-shadow: none !important;
+      border: none !important;
+      outline: none;
+    }
+  }
+}

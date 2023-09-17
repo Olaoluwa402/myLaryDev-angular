@@ -1,0 +1,81 @@
+<div class="container shadow rounded p-3">
+  <div class="row">
+    <div class="container">
+      <h2>Create Critical Role</h2>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- form inputs -->
+    <div class="col-12 col-md-6">
+      <div class="formG d-flex flex-column my-2">
+        <label for="job-role">Job Role</label>
+        <select class="p-2" name="job-role" id="job-role">
+          <option value="">Select Role</option>
+          <option value="1">UI/UX Designer</option>
+          <option value="2">Frondend Designer</option>
+          <option value="3">Backend Designer</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="formG d-flex flex-column my-2">
+          <label for="job-length">Length</label>
+          <select class="p-2" name="job-length" id="job-length">
+            <option value="">DD</option>
+            <option value="1">2</option>
+            <option value="2">5</option>
+            <option value="3">8</option>
+          </select>
+        </div>
+        <div class="formG d-flex flex-column my-2">
+          <label for="role-date">DD/MM/YY</label>
+          <input
+            class="p-2"
+            type="date"
+            name="role-date"
+            id="role-date"
+            placeholder="DD/MM/YY"
+          />
+        </div>
+      </div>
+
+      <div class="formG d-flex flex-column my-2">
+        <label for="num-talent">Numbers of Talent Required for Role</label>
+        <select class="p-2" name="num-talent" id="num-talent">
+          <option value="">Select Number</option>
+          <option value="1">2</option>
+          <option value="2">5</option>
+          <option value="3">8</option>
+        </select>
+      </div>
+
+      <div class="formG d-flex flex-column my-2">
+        <label for="job-criticality">Describe how critical the Role is</label>
+        <textarea
+          name="job-criticality"
+          id="job-criticality"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+
+      <div class="btn-action">
+        <app-button
+          text="save and preview"
+          color="#fff"
+          bgColor="purple"
+          (btnClick)="onSubmit()"
+        ></app-button>
+      </div>
+    </div>
+    <!-- form image -->
+    <div class="col-12 col-md-6">
+      <img
+        class="w-100"
+        src="assets/images/exclamation-mark.avif"
+        alt="My Image"
+      />
+    </div>
+  </div>
+</div>
